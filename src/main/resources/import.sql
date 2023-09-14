@@ -1,2 +1,2 @@
-INSERT INTO pizze (nome, descrizione, prezzo) VALUES ('margherita', 'mozzarella e pomodoro', 6.5);
-INSERT INTO pizze (nome, descrizione, prezzo) VALUES ('romana', 'pomodoro, mozzarella e prosciutto', 8.5);
+INSERT INTO pizze (nome, descrizione, prezzo) VALUES ('Margherita', 'mozzarella e pomodoro', 6.5);
+INSERT INTO pizze (nome, descrizione, prezzo) VALUES ('Romana', 'pomodoro, mozzarella e prosciutto', 8.5);
