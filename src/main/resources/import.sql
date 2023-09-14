@@ -1,2 +1,2 @@
-<--INSERT INTO pizze (nome, descrizione, prezzo, url_foto) VALUES ('Margherita', 'mozzarella e pomodoro', 6.5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/260px-Eq_it-na_pizza-margherita_sep2005_sml.jpg');
-<--INSERT INTO pizze (nome, descrizione, prezzo) VALUES ('Romana', 'pomodoro, mozzarella e prosciutto', 8.5);
+INSERT INTO pizze (nome, descrizione, prezzo, url_foto) VALUES ('Margherita', 'mozzarella e pomodoro', 6.5, 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/260px-Eq_it-na_pizza-margherita_sep2005_sml.jpg');
+INSERT INTO pizze (nome, descrizione, prezzo) VALUES ('Romana', 'pomodoro, mozzarella e prosciutto', 8.5);

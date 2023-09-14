@@ -13,6 +13,7 @@ public class Pizza {
     private String nome;
     private String descrizione;
     private BigDecimal prezzo;
+    private String urlFoto;
 
     public String getNome() {
         return nome;
@@ -36,5 +37,13 @@ public class Pizza {
 
     public void setPrezzo(BigDecimal prezzo) {
         this.prezzo = prezzo;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 }
