@@ -16,11 +16,11 @@
 <div>
     <h1 class="text-danger">Le nostre pizze:</h1>
     <span th:if="${pizze.size() == 0}">Al momento non ci sono pizze disponibili</span>
-
     <ul>
         <li th:each="pizza : ${pizze}">
             <h3 th:text="${pizza.nome}"></h3>
             <p th:text="|Ingredienti: ${pizza.descrizione} - prezzo: € ${pizza.prezzo}|"></p>
+            <img th:src="${pizza.urlFoto}" width="250px">
         </li>
     </ul>
 </div>
