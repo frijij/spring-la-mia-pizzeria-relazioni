@@ -1,8 +1,6 @@
 package org.learning.pizzeriacrud.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
@@ -10,10 +8,21 @@ import java.math.BigDecimal;
 @Table(name = "pizze")
 public class Pizza {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String nome;
     private String descrizione;
     private BigDecimal prezzo;
     private String urlFoto;
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
