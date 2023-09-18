@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -12,18 +11,20 @@
           crossorigin="anonymous">
     <title>Pizzeria Crud</title>
 </head>
+
 <body>
-<div>
-    <h1 class="text-danger">Le nostre pizze:</h1>
+<div class="bg-warning mh-100 fixed-bottom fixed-top">
+    <h1 class="text-danger text-center m-2">Le nostre pizze:</h1>
     <span th:if="${pizze.size() == 0}">Al momento non ci sono pizze disponibili</span>
-    <ul>
-        <li th:each="pizza : ${pizze}">
-            <h3 th:text="${pizza.nome}"></h3>
-            <p th:text="|Ingredienti: ${pizza.descrizione} - prezzo: € ${pizza.prezzo}|"></p>
-            <img th:src="${pizza.urlFoto}" width="250px">
-            <a th:href="@{/pizze/show/{id}(id=${pizza.id})}">Dettagli</a>
-        </li>
-    </ul>
+    <div class="d-flex justify-content-evenly m-5">
+        <div class="card text-center border-0" style="width: 18rem;" th:each="pizza:${pizze}">
+            <img th:src="${pizza.urlFoto}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${pizza.nome}"></h5>
+                <a th:href="@{/pizze/show/{id}(id=${pizza.id})}" class="btn btn-primary">Dettagli</a>
+            </div>
+        </div>
+    </div>
 
 </div>
 

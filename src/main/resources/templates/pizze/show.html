@@ -12,19 +12,20 @@
     <title>Title</title>
 </head>
 <body>
-<div class="container text-center">
-    <h1 th:text="|Dettagli pizza: ${pizza.nome}"></h1>
+<div class="bg-warning fixed-top fixed-bottom">
+    <div class="container mt-3">
+        <h1 th:text="|Dettagli pizza: ${pizza.nome}" class="text-danger"></h1>
 
-    <div class="card" style="width: 18rem;">
-        <img th:src="${pizza.urlFoto}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title" th:text="${pizza.nome}"></h5>
-            <p class="card-text" th.thext="|Ingredienti: ${pizza.descrizione}.|"></p>
-            <p class="card-text" th.thext="|€${pizza.prezzo}.|"></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+        <div class="card mt-3" style="width: 18rem;">
+            <img th:src="${pizza.urlFoto}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> Ingredienti: </h5>
+                <p class="card-text" th:text="${pizza.descrizione}"></p>
+                <p class="card-text fw-medium" th:text="|€${pizza.prezzo}|"></p>
+            </div>
         </div>
     </div>
-    
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
