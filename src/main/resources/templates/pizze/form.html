@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -11,8 +11,39 @@
           crossorigin="anonymous">
     <title>Crea nuova pizza</title>
 </head>
+
 <body>
-<h1>Crea nuova pizza</h1>
+<div class="bg-warning mh-100 fixed-bottom fixed-top">
+    <h1 class="text-danger text-center m-2">Crea nuova pizza: </h1>
+    <hr>
+    <div class="container">
+        <form class="row g-3" id="pizza-form"
+              th:action="@{/pizze/create}"
+              th:object="${pizza}"
+              method="POST">
+            <div class="col-md-6">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" th:field="*{nome}"/>
+            </div>
+            <div class="col-md-6">
+                <label for="descrizione" class="form-label">Descrizione</label>
+                <input type="text" class="form-control" id="descrizione"
+                       placeholder="Inserisci gli ingredienti della tua pizza..." th:field="*{descrizione}"/>
+            </div>
+            <div class="col-12">
+                <label for="prezzo" class="form-label">Prezzo</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">€</span>
+                    <input type="number" class="form-control" id="prezzo" placeholder="0.00" th:field="*{prezzo}"/>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger">Crea</button>
+            </div>
+        </form>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
