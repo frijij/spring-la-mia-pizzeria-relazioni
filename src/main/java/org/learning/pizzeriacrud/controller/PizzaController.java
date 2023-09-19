@@ -39,4 +39,10 @@ public class PizzaController {
         }
     }
 
+    @GetMapping("/create")
+    public String create(Model model) {
+        model.addAttribute("pizza", new Pizza());
+        return "/pizze/form";
+    }
+
 }
