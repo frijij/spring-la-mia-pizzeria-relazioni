@@ -1,6 +1,9 @@
 package org.learning.pizzeriacrud.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
@@ -10,10 +13,18 @@ public class Pizza {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "Questo campo non può essere vuoto")
     private String nome;
+    @NotBlank(message = "Questo campo non può essere vuoto")
     private String descrizione;
+    @Min(1)
+    @NotNull
     private BigDecimal prezzo;
+    @NotBlank(message = "Questo campo non può essere vuoto")
     private String urlFoto;
+
+    public Pizza() {
+    }
 
 
     public Integer getId() {

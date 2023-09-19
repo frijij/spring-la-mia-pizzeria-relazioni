@@ -23,24 +23,28 @@
               method="POST">
             <div class="col-md-6">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" th:field="*{nome}"/>
+                <input type="text" class="form-control" id="nome" th:field="*{nome}" required
+                       th:errorClass="is-invalid"/>
             </div>
             <div class="col-md-6">
                 <label for="descrizione" class="form-label">Descrizione</label>
                 <input type="text" class="form-control" id="descrizione"
-                       placeholder="Inserisci gli ingredienti della tua pizza..." th:field="*{descrizione}"/>
+                       placeholder="Inserisci gli ingredienti della tua pizza..." th:field="*{descrizione}" required
+                       th:errorClass="is-invalid"/>
             </div>
             <div class="col-12">
                 <label for="prezzo" class="form-label">Prezzo</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text">€</span>
-                    <input type="number" class="form-control" id="prezzo" placeholder="0.00" th:field="*{prezzo}"/>
+                    <input type="number" class="form-control" id="prezzo" placeholder="0.00" th:field="*{prezzo}"
+                           required th:errorClass="is-invalid"/>
                 </div>
             </div>
             <div class="col-12">
                 <label for="url-foto" class="form-label">Url Immagine</label>
                 <input type="text" class="form-control" id="url-foto"
-                       placeholder="Inserisci l'indirizzo dell'immagine..." th:field="*{urlFoto}"/>
+                       placeholder="Inserisci l'indirizzo dell'immagine..." th:field="*{urlFoto}" required
+                       th:errorClass="is-invalid"/>
             </div>
 
             <div class="col-12">

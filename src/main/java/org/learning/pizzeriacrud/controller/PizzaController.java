@@ -1,11 +1,13 @@
 package org.learning.pizzeriacrud.controller;
 
+import jakarta.validation.Valid;
 import org.learning.pizzeriacrud.model.Pizza;
 import org.learning.pizzeriacrud.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -44,7 +46,11 @@ public class PizzaController {
     }
 
     @PostMapping("/create")
-    public String doCreate(@ModelAttribute("pizza") Pizza formPizza) {
+    public String doCreate(@Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "/pizze/form";
+        }
+        repository.save(formPizza);
         return "redirect:/pizze";
     }
 
