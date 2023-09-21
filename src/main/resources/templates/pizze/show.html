@@ -17,7 +17,7 @@
     <hr>
     <div class="d-flex justify-content-evenly">
         <div class="card mt-3 text-center" style="width: 18rem;">
-            <img th:src="${pizza.urlFoto}" class="card-img-top" th:alt="Immagine pizza ${pizza.nome}">
+            <img th:src="${pizza.urlFoto}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title"> Ingredienti: </h5>
                 <p class="card-text" th:text="${pizza.descrizione}"></p>

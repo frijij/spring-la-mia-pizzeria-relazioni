@@ -18,7 +18,7 @@
     <span th:if="${pizze.size() == 0}">Al momento non ci sono pizze disponibili</span>
     <div class="d-flex justify-content-evenly m-5">
         <div class="card text-center border-0" style="width: 18rem;" th:each="pizza:${pizze}">
-            <img th:src="${pizza.urlFoto}" class="card-img-top" alt="...">
+            <img th:src="${pizza.urlFoto}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title" th:text="${pizza.nome}"></h5>
                 <a th:href="@{/pizze/show/{id}(id=${pizza.id})}" class="btn btn-primary">Dettagli</a>
