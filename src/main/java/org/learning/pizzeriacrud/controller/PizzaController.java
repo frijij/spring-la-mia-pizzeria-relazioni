@@ -63,4 +63,14 @@ public class PizzaController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PostMapping("/edit/{id}")
+    public String doEdit(@PathVariable Integer id, @Valid @ModelAttribute("pizza") Pizza formPizza, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "/pizze/edit";
+        }
+        repository.save(formPizza);
+        return "redirect:/pizze";
+    }
+
 }

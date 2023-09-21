@@ -18,7 +18,7 @@ public class Pizza {
     @NotBlank(message = "Questo campo non può essere vuoto")
     private String descrizione;
     @Min(1)
-    @NotNull
+    @NotNull(message = "Questo campo non può essere vuoto.")
     private BigDecimal prezzo;
     @NotBlank(message = "Questo campo non può essere vuoto")
     private String urlFoto;
