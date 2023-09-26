@@ -15,6 +15,9 @@ public class Offerta {
     private LocalDate dataFine;
     private String titolo;
 
+    @ManyToOne
+    private Pizza pizza;
+
     public Integer getId() {
         return id;
     }
@@ -45,5 +48,13 @@ public class Offerta {
 
     public void setTitolo(String titolo) {
         this.titolo = titolo;
+    }
+
+    public Pizza getPizza() {
+        return pizza;
+    }
+
+    public void setPizza(Pizza pizza) {
+        this.pizza = pizza;
     }
 }

@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "pizze")
@@ -22,6 +23,9 @@ public class Pizza {
     private BigDecimal prezzo;
     @NotBlank(message = "Questo campo non può essere vuoto")
     private String urlFoto;
+
+    @OneToMany(mappedBy = "pizza")
+    private List<Offerta> offerte;
 
     public Pizza() {
     }
@@ -65,5 +69,13 @@ public class Pizza {
 
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
+    }
+
+    public List<Offerta> getOfferte() {
+        return offerte;
+    }
+
+    public void setOfferte(List<Offerta> offerte) {
+        this.offerte = offerte;
     }
 }
