@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
@@ -36,10 +34,15 @@ public class OffertaController {
             offerta.setDataFine(LocalDate.now());
             model.addAttribute("offerta", offerta);
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza " + pizzaId + " non trovata.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Pizza con id " + pizzaId + " non trovata.");
         }
-
         return "/pizze/offerte/form";
+    }
+
+    @PostMapping("/create")
+    public String doCreate(@ModelAttribute("offerta") Offerta offertaForm) {
+        offertaRepository.save(offertaForm);
+        return "redirect:/pizze/show/" + offertaForm.getPizza().getId();
     }
 
 
