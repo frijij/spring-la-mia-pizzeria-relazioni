@@ -26,6 +26,25 @@
             </div>
         </div>
     </div>
+    <div class="container my-5">
+        <a class="btn btn-danger mx-2" th:href="@{/offerte/create(pizzaId=${pizza.id})}">Aggiungi offerta</a>
+        <table class="table" th:if="${pizza.offerte.size() > 0}">
+            <thead>
+            <tr>
+                <th>Offerta</th>
+                <th>Data Inizio</th>
+                <th>Data Fine</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="offerta:${pizza.offerte}">
+                <td th:text="${offerta.titolo}"></td>
+                <td th:text="${offerta.dataInizio}"></td>
+                <td th:text="${offerta.dataFine}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 </div>
 
