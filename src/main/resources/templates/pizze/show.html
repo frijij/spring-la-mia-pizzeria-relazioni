@@ -34,6 +34,7 @@
                 <th>Offerta</th>
                 <th>Data Inizio</th>
                 <th>Data Fine</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -41,6 +42,9 @@
                 <td th:text="${offerta.titolo}"></td>
                 <td th:text="${offerta.dataInizio}"></td>
                 <td th:text="${offerta.dataFine}"></td>
+                <td><a class="btn btn-primary" th:href="@{/offerte/edit/{offertaId}(offertaId=${offerta.id})}">Modifica
+                    offerta</a>
+                </td>
             </tr>
             </tbody>
         </table>

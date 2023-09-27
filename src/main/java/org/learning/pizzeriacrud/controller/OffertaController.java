@@ -45,5 +45,19 @@ public class OffertaController {
         return "redirect:/pizze/show/" + offertaForm.getPizza().getId();
     }
 
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable Integer id, Model model) {
+        if (offertaRepository.findById(id).isPresent()) {
+            model.addAttribute("offerta", offertaRepository.findById(id).get());
+
+        }
+        return "pizze/offerte/edit";
+    }
+
+    @PostMapping("/edit/{id}")
+    public String doEdit(@PathVariable Integer id, @ModelAttribute("offerta") Offerta offertaForm) {
+        offertaRepository.save(offertaForm);
+        return "redirect:/pizze/show/" + offertaForm.getPizza().getId();
+    }
 
 }
