@@ -27,6 +27,9 @@ public class Pizza {
     @OneToMany(mappedBy = "pizza")
     private List<Offerta> offerte;
 
+    @ManyToMany
+    private List<Ingrediente> ingredienti;
+
     public Pizza() {
     }
 
@@ -71,11 +74,20 @@ public class Pizza {
         this.urlFoto = urlFoto;
     }
 
+
     public List<Offerta> getOfferte() {
         return offerte;
     }
 
     public void setOfferte(List<Offerta> offerte) {
         this.offerte = offerte;
+    }
+
+    public List<Ingrediente> getIngredienti() {
+        return ingredienti;
+    }
+
+    public void setIngredienti(List<Ingrediente> ingredienti) {
+        this.ingredienti = ingredienti;
     }
 }
