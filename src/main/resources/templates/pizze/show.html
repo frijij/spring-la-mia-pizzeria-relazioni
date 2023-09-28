@@ -19,9 +19,14 @@
         <div class="card mt-3 text-center" style="width: 18rem;">
             <img th:src="${pizza.urlFoto}" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title"> Ingredienti: </h5>
+                <h5 class="card-title"> Descrizione </h5>
                 <p class="card-text" th:text="${pizza.descrizione}"></p>
-                <p class="card-text fw-medium" th:text="|€${pizza.prezzo}|"></p>
+                <h5>Ingredienti:</h5>
+                <div th:each="ingrediente : ${pizza.ingredienti}">
+                    <p th:text="${ingrediente.nome}"></p>
+                </div>
+                <h5 class="card-text fw-medium" th:text="|€${pizza.prezzo}|"></h5>
+
                 <a class="btn btn-primary" th:href="@{/pizze}">Torna alla Home</a>
             </div>
         </div>

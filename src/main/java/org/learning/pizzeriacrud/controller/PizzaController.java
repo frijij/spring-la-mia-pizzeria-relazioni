@@ -2,6 +2,7 @@ package org.learning.pizzeriacrud.controller;
 
 import jakarta.validation.Valid;
 import org.learning.pizzeriacrud.model.Pizza;
+import org.learning.pizzeriacrud.repository.IngredienteRepository;
 import org.learning.pizzeriacrud.repository.PizzaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,9 @@ public class PizzaController {
     @Autowired
     private PizzaRepository repository;
 
+    @Autowired
+    private IngredienteRepository ingredienteRepository;
+
     @GetMapping
     public String index(Model model) {
         List<Pizza> listaPizze = repository.findAll();
@@ -33,6 +37,7 @@ public class PizzaController {
         Optional<Pizza> pizzaOptional = repository.findById(id);
         if (pizzaOptional.isPresent()) {
             model.addAttribute("pizza", pizzaOptional.get());
+            model.addAttribute("ingredienti", ingredienteRepository.findAll());
             return "/pizze/show";
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -42,6 +47,7 @@ public class PizzaController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("pizza", new Pizza());
+        model.addAttribute("ingredienti", ingredienteRepository.findAll());
         return "/pizze/form";
     }
 
@@ -58,6 +64,7 @@ public class PizzaController {
     public String edit(@PathVariable("id") Integer id, Model model) {
         if (repository.findById(id).isPresent()) {
             model.addAttribute("pizza", repository.findById(id).get());
+            model.addAttribute("ingredienti", ingredienteRepository.findAll());
             return "/pizze/edit";
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
